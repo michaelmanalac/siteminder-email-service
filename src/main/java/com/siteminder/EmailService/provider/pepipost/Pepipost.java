@@ -72,23 +72,23 @@ public class Pepipost extends EmailProvider {
 		
 		Optional.ofNullable(request.getTo()).ifPresent(to -> {
 				
-				personalizations.setTo(request.getTo().stream()
+				personalizations.setTo(to.stream()
 							.map(EmailStruct::new)
 							.collect(Collectors.toCollection(ArrayList::new)));
 			
 		});
 		
-		Optional.ofNullable(request.getTo()).ifPresent(to -> {
+		Optional.ofNullable(request.getCc()).ifPresent(cc -> {
 			
-			personalizations.setCc(request.getCc().stream()
+			personalizations.setCc(cc.stream()
 						.map(EmailStruct::new)
 						.collect(Collectors.toCollection(ArrayList::new)));
 		
 		});
 		
-		Optional.ofNullable(request.getTo()).ifPresent(to -> {
+		Optional.ofNullable(request.getBcc()).ifPresent(bcc -> {
 			
-			personalizations.setBcc(request.getBcc().stream()
+			personalizations.setBcc(bcc.stream()
 						.map(EmailStruct::new)
 						.collect(Collectors.toCollection(ArrayList::new)));
 		
